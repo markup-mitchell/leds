@@ -4,8 +4,8 @@ import LED from './LED';
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: 50px 50px 50px 50px;
-  grid-template-rows: 50px 50px 50px 50px;
+  grid-template-columns: 70px 70px 70px 70px;
+  grid-template-rows: 70px 70px 70px 70px;
   background: #999;
 `;
 
