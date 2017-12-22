@@ -2,22 +2,26 @@ import React, {Component} from 'react';
 import styled from 'styled-components';
 
 const OffBulb = styled.div`
- width: 30px;
+  --dark: ${props=>props.dark};
+  --darkest: ${props=>props.darkest};
+  width: 30px;
    height: 30px;
    background: radial-gradient(
       farthest-corner at 60% 45%,
-      #990000,#220000);
+      var(--dark),var(--darkest));
    border-radius: 100%;
 `;
 
  const OnBulb = styled.div`
+  --bulb: ${props=>props.bulb};
+  --glow: ${props=>props.glow};
   width: 30px;
-   height: 30px;
-   border-radius: 100%;
-    filter: brightness(1.3);
-   background: radial-gradient(
-      orange, red, red, red);
-   box-shadow: 0 0 20px #ff0000;
+  height: 30px;
+  border-radius: 100%;
+  filter: brightness(1.3);
+  background: radial-gradient(
+    var(--glow), var(--bulb), var(--bulb),var(--bulb));
+  box-shadow: 0 0 20px var(--bulb);
 `
 
 const Surround = styled.div`
@@ -54,11 +58,15 @@ export default class LED extends Component{
       <div>
       { on ? (
         <Surround>
-          <OnBulb/>
+          <OnBulb bulb={this.props.bulb} glow={this.props.glow} />
         </Surround>
       ):(
         <Surround shadow='-1px 3px 0px #777'>
-          <OffBulb/>
+          <OffBulb 
+            bulb={this.props.bulb} 
+            dark={this.props.dark}
+            darkest={this.props.darkest}
+          />
         </Surround>
       )}
         <button onClick={this.toggle}>On/Off</button>
