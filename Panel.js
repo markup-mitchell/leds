@@ -1,12 +1,12 @@
-import React, {Component} from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import LED from './LED';
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: 70px 70px 70px 70px;
-  grid-template-rows: 70px 70px 70px 70px;
-  background: #999;
+  grid-template-columns: 50px 50px 50px 50px;
+  grid-template-rows: 50px 50px 50px 50px;
+  background: #888;
 `;
 
 const red = '#ff0000';
@@ -21,7 +21,7 @@ const darkestBlue = '#000022';
 
 const green = '#00cc00';
 const lightGreen = '#75f0bb';
-const darkGreen = '#009900';
+const darkGreen = '#00ff00';
 const darkestGreen = '#002200';
 
 

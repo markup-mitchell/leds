@@ -7,7 +7,7 @@ const OffBulb = styled.div`
   width: 30px;
    height: 30px;
    background: radial-gradient(
-      farthest-corner at 60% 45%,
+      farthest-corner at 60% 40%,
       var(--dark),var(--darkest));
    border-radius: 100%;
 `;
@@ -38,7 +38,7 @@ const Surround = styled.div`
   box-shadow: ${props=>props.shadow || '0' };
 `;
 
-export default class LED extends Component{
+export default class LED extends Component {
   constructor(){
     super();
     this.state = {
@@ -58,18 +58,22 @@ export default class LED extends Component{
       <div>
       { on ? (
         <Surround>
-          <OnBulb bulb={this.props.bulb} glow={this.props.glow} />
+          <OnBulb 
+            bulb={this.props.bulb} 
+            glow={this.props.glow} 
+            onClick={this.toggle}
+        />
         </Surround>
       ):(
-        <Surround shadow='-1px 3px 0px #777'>
+        <Surround shadow='-1px 2px 3px #666'>
           <OffBulb 
             bulb={this.props.bulb} 
             dark={this.props.dark}
             darkest={this.props.darkest}
+            onClick={this.toggle}
           />
         </Surround>
       )}
-        <button onClick={this.toggle}>On/Off</button>
       </div>
     )}
 };
